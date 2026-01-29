@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavish - عطور فاخرة | Luxury Perfumes</title>
+    <meta name="description" content="Lavish - متجر عطور فاخرة في البصرة، الزبير. اكتشف مجموعة واسعة من العطور الرجالية والنسائية الفاخرة.">
+    
+    <!-- Google Fonts - Elegant Arabic & English Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Playfair+Display:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>LAVISH</h1>
+                    <p class="tagline">Luxury Perfumes</p>
+                </div>
+                
+                <nav class="main-nav">
+                    <a href="#home" class="nav-link active">الرئيسية</a>
+                    <a href="#products" class="nav-link">المنتجات</a>
+                    <a href="#contact" class="nav-link">تواصل معنا</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="https://instagram.com/lavish_perfumes_iraq" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="#home" class="nav-link">الرئيسية</a>
+                <a href="#products" class="nav-link">المنتجات</a>
+                <a href="#contact" class="nav-link">تواصل معنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">LAVISH</h2>
+                <p class="hero-subtitle">عالم من العطور الفاخرة</p>
+                <p class="hero-description">اكتشف مجموعتنا الحصرية من أرقى العطور العالمية</p>
+                <a href="#products" class="btn btn-primary">استكشف المجموعة</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="filter-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">مجموعة العطور</h2>
+                <p class="section-subtitle">اختر من بين أكثر من 500 عطر فاخر</p>
+            </div>
+            
+            <div class="filter-controls">
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث عن العطر المفضل..." class="search-input">
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">الفئة:</label>
+                    <div class="filter-buttons" id="categoryFilter">
+                        <button class="filter-btn active" data-category="all">الكل</button>
+                        <button class="filter-btn" data-category="200 SCENTS">200 SCENTS</button>
+                        <button class="filter-btn" data-category="ARMAF">ARMAF</button>
+                        <button class="filter-btn" data-category="FRAGRANCE WORLD">FRAGRANCE WORLD</button>
+                        <button class="filter-btn" data-category="LATTAFA">LATTAFA</button>
+                        <button class="filter-btn" data-category="OTOORI">OTOORI</button>
+                    </div>
+                </div>
+                
+                <!-- Sub-Category Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">النوع:</label>
+                    <div class="filter-buttons" id="subCategoryFilter">
+                        <button class="filter-btn active" data-subcategory="all">الكل</button>
+                        <button class="filter-btn" data-subcategory="MEN">رجالي</button>
+                        <button class="filter-btn" data-subcategory="WOMEN">نسائي</button>
+                        <button class="filter-btn" data-subcategory="UNISEX">للجنسين</button>
+                    </div>
+                </div>
+                
+                <!-- Sort Options -->
+                <div class="filter-group">
+                    <label class="filter-label">ترتيب حسب:</label>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="default">الترتيب الافتراضي</option>
+                        <option value="name-asc">الاسم (أ - ي)</option>
+                        <option value="name-desc">الاسم (ي - أ)</option>
+                        <option value="brand">العلامة التجارية</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Results Counter -->
+            <div class="results-info">
+                <p class="results-count">عرض <span id="resultsCount">0</span> منتج</p>
+                <button class="btn-reset-filters" id="resetFilters">
+                    <i class="fas fa-redo"></i> إعادة تعيين الفلاتر
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>جاري تحميل المنتجات...</p>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>لا توجد نتائج</h3>
+                <p>عذراً، لم نجد أي منتجات تطابق بحثك. جرب كلمات بحث أخرى.</p>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="btn btn-secondary" id="loadMoreBtn">
+                    عرض المزيد
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-subtitle">نسعد بخدمتكم</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>الموقع</h3>
+                    <p>البصرة، الزبير<br>شارع الرشيدية، مول الزبير</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>انستقرام</h3>
+                    <a href="https://instagram.com/lavish_perfumes_iraq" target="_blank" class="contact-link">
+                        @lavish_perfumes_iraq
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>أوقات العمل</h3>
+                    <p>يومياً من 9 صباحاً<br>حتى 10 مساءً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LAVISH</h3>
+                    <p>عطور فاخرة لكل المناسبات</p>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://instagram.com/lavish_perfumes_iraq" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lavish Perfumes. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+</html>
